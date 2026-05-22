@@ -1,0 +1,920 @@
+
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Glow Nails Studio</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body id="body" class="bg-pink-50 text-gray-800 transition duration-500">
+
+<!-- LOADER -->
+<div id="loader"
+class="fixed inset-0 bg-pink-600 flex items-center justify-center z-50">
+
+  <div class="text-center text-white">
+
+    <h1 class="text-5xl font-bold animate-pulse">
+      💅 Glow Nails Studio
+    </h1>
+
+    <p class="mt-4 text-xl">
+      Loading...
+    </p>
+
+  </div>
+
+</div>
+
+<!-- LOGIN -->
+<section id="loginPage"
+class="min-h-screen flex items-center justify-center px-5">
+
+  <div class="bg-white rounded-3xl shadow-2xl p-10 w-full max-w-md">
+
+    <h1 class="text-4xl font-bold text-pink-600 text-center mb-3">
+      💅 Glow Nails Studio
+    </h1>
+
+    <p class="text-center text-gray-500 mb-8">
+      Login To Enter Store
+    </p>
+
+    <div class="space-y-5">
+
+      <input
+      id="loginName"
+      type="text"
+      placeholder="আপনার নাম"
+      class="w-full border border-gray-300 rounded-2xl px-5 py-4"/>
+
+      <input
+      id="loginPhone"
+      type="text"
+      placeholder="মোবাইল নাম্বার"
+      class="w-full border border-gray-300 rounded-2xl px-5 py-4"/>
+
+      <button
+      onclick="loginUser()"
+      class="w-full bg-pink-500 hover:bg-pink-600 text-white py-4 rounded-2xl text-xl font-bold">
+
+        Enter Store
+
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- WEBSITE -->
+<div id="website" class="hidden">
+
+<!-- HEADER -->
+<header class="bg-pink-600 text-white sticky top-0 z-40 shadow-lg">
+
+  <div class="max-w-7xl mx-auto px-5 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
+
+    <div>
+
+      <h1 class="text-3xl font-bold">
+        💅 Glow Nails Studio
+      </h1>
+
+      <p id="welcomeText" class="text-sm mt-1">
+        Welcome 💖
+      </p>
+
+    </div>
+
+    <div class="flex gap-3 flex-wrap">
+
+      <input
+      id="searchInput"
+      type="text"
+      placeholder="Search Nails..."
+      class="px-4 py-2 rounded-xl text-black outline-none"/>
+
+      <button
+      onclick="searchProducts()"
+      class="bg-yellow-300 hover:bg-yellow-400 text-black px-5 py-2 rounded-xl font-bold">
+
+        Search
+
+      </button>
+
+      <button
+      onclick="toggleDarkMode()"
+      class="bg-black text-white px-5 py-2 rounded-xl font-bold">
+
+        🌙 Dark
+
+      </button>
+
+      <!-- HIDDEN LOGOUT -->
+      <button
+      onclick="logoutUser()"
+      class="hidden bg-red-500 hover:bg-red-600 text-white px-5 py-2 rounded-xl font-bold">
+
+        Logout
+
+      </button>
+
+    </div>
+
+  </div>
+
+</header>
+
+<!-- DISCOUNT -->
+<section class="bg-yellow-300 py-3 text-center font-bold text-lg">
+
+🎉 Use Code:
+<span class="text-red-600">GLOW20</span>
+& Get 20% OFF
+
+</section>
+
+<!-- HERO -->
+<section class="relative overflow-hidden">
+
+  <img
+  src="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1600&auto=format&fit=crop"
+  class="w-full h-[600px] object-cover"/>
+
+  <div class="absolute inset-0 bg-black/50 flex items-center justify-center text-center px-4">
+
+    <div>
+
+      <h2 class="text-5xl md:text-7xl font-extrabold text-white mb-5">
+        Luxury Press On Nails
+      </h2>
+
+      <p class="text-white text-xl mb-8">
+        Handmade • Reusable • Waterproof
+      </p>
+
+      <a
+      href="#products"
+      class="bg-pink-500 hover:bg-pink-600 text-white px-10 py-4 rounded-2xl text-xl font-bold">
+
+        Shop Now
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- PRODUCTS -->
+<section id="products" class="max-w-7xl mx-auto px-5 py-16">
+
+  <h2 class="text-4xl font-bold text-center text-pink-600 mb-12">
+    Trending Nails
+  </h2>
+
+  <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+
+    <!-- PRODUCT -->
+    <div id="Pink Glossy Nails"
+    class="product-card bg-white rounded-3xl shadow-xl overflow-hidden hover:scale-105 duration-300">
+
+      <img
+      src="nail1.jpeg"
+      class="h-72 w-full object-cover"/>
+
+      <div class="p-5">
+
+        <h3 class="text-2xl font-bold mb-2">
+          Pink Glossy Nails
+        </h3>
+
+        <div class="text-yellow-500 mb-3">
+          ⭐⭐⭐⭐⭐ (128)
+        </div>
+
+        <p class="text-pink-600 font-bold text-2xl mb-4">
+          ₹299
+        </p>
+
+        <div class="flex flex-col gap-3">
+
+          <button
+          onclick="addToCart('Pink Glossy Nails',299)"
+          class="bg-pink-500 hover:bg-pink-600 text-white py-3 rounded-2xl font-bold">
+
+            Add To Cart
+
+          </button>
+
+          <button
+          onclick="addWishlist('Pink Glossy Nails')"
+          class="bg-black text-white py-3 rounded-2xl font-bold">
+
+            Wishlist ❤️
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- PRODUCT -->
+    <div id="Black Luxury Nails"
+    class="product-card bg-white rounded-3xl shadow-xl overflow-hidden hover:scale-105 duration-300">
+
+      <img
+      src="nail2.jpeg"
+      class="h-72 w-full object-cover"/>
+
+      <div class="p-5">
+
+        <h3 class="text-2xl font-bold mb-2">
+          Black Luxury Nails
+        </h3>
+
+        <div class="text-yellow-500 mb-3">
+          ⭐⭐⭐⭐⭐ (96)
+        </div>
+
+        <p class="text-pink-600 font-bold text-2xl mb-4">
+          ₹349
+        </p>
+
+        <div class="flex flex-col gap-3">
+
+          <button
+          onclick="addToCart('Black Luxury Nails',349)"
+          class="bg-pink-500 hover:bg-pink-600 text-white py-3 rounded-2xl font-bold">
+
+            Add To Cart
+
+          </button>
+
+          <button
+          onclick="addWishlist('Black Luxury Nails')"
+          class="bg-black text-white py-3 rounded-2xl font-bold">
+
+            Wishlist ❤️
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- CART -->
+<section class="max-w-7xl mx-auto px-5 pb-16">
+
+<div class="grid md:grid-cols-2 gap-8">
+
+<!-- CART -->
+<div class="bg-white p-8 rounded-3xl shadow-xl">
+
+<h2 class="text-3xl font-bold text-pink-600 mb-5">
+🛒 Cart
+</h2>
+
+<div id="cartItems" class="space-y-3">
+<p>Cart Empty</p>
+</div>
+
+<h3 id="cartTotal"
+class="text-2xl font-bold text-pink-600 mt-5">
+
+Total: ₹0
+
+</h3>
+
+</div>
+
+<!-- ORDER -->
+<div class="bg-white rounded-3xl shadow-2xl p-8">
+
+<h2 class="text-4xl font-bold mb-8 text-pink-600">
+🛍️ Order Form
+</h2>
+
+<div class="space-y-5">
+
+<input
+id="customerName"
+type="text"
+placeholder="আপনার নাম"
+class="w-full border border-gray-300 rounded-2xl px-5 py-4"/>
+
+<input
+id="customerPhone"
+type="text"
+placeholder="মোবাইল নাম্বার"
+class="w-full border border-gray-300 rounded-2xl px-5 py-4"/>
+
+<textarea
+id="customerAddress"
+rows="4"
+placeholder="Full Address"
+class="w-full border border-gray-300 rounded-2xl px-5 py-4"></textarea>
+
+<input
+id="customerPin"
+type="text"
+placeholder="PIN Code"
+class="w-full border border-gray-300 rounded-2xl px-5 py-4"/>
+
+<select
+id="nailSize"
+class="w-full border border-gray-300 rounded-2xl px-5 py-4">
+
+<option value="">Nail Size নির্বাচন করুন</option>
+<option>XS</option>
+<option>S</option>
+<option>M</option>
+<option>L</option>
+
+</select>
+
+<select
+id="deliveryType"
+onchange="calculateTotal()"
+class="w-full border border-gray-300 rounded-2xl px-5 py-4">
+
+<option value="">Delivery Type নির্বাচন করুন</option>
+<option value="80">Standard Delivery - ₹80</option>
+<option value="120">Express Delivery - ₹120</option>
+
+</select>
+
+<input
+id="couponInput"
+type="text"
+placeholder="Coupon Code"
+class="w-full border border-gray-300 rounded-2xl px-5 py-4"/>
+
+<button
+onclick="applyCoupon()"
+class="w-full bg-yellow-300 hover:bg-yellow-400 py-3 rounded-2xl font-bold">
+
+Apply Coupon
+
+</button>
+
+<div class="bg-pink-50 border border-pink-200 p-5 rounded-2xl">
+
+<h3 class="text-2xl font-bold text-pink-600 mb-4">
+💳 Online UPI Payment
+</h3>
+
+<p class="mb-3">
+QR Scan করে Payment করুন
+</p>
+
+<img
+src="image/qr.jpeg"
+class="w-64 rounded-2xl mx-auto"/>
+
+<p class="text-center mt-4 font-bold text-green-600">
+UPI ID: glow@upi
+</p>
+
+</div>
+
+<div class="bg-pink-50 p-5 rounded-2xl">
+
+<h3 id="finalTotal"
+class="text-2xl font-bold text-pink-600">
+
+Final Total: ₹0
+
+</h3>
+
+</div>
+
+<button
+onclick="submitOrder()"
+class="w-full bg-pink-500 hover:bg-pink-600 text-white py-4 rounded-2xl text-xl font-bold">
+
+Submit Order
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- REVIEW -->
+<section class="max-w-7xl mx-auto px-5 pb-16">
+
+<div class="bg-white rounded-3xl shadow-2xl p-8">
+
+<h2 class="text-4xl font-bold mb-8 text-pink-600">
+⭐ Customer Review
+</h2>
+
+<div class="space-y-5">
+
+<input
+id="reviewName"
+type="text"
+placeholder="আপনার নাম"
+class="w-full border border-gray-300 rounded-2xl px-5 py-4"/>
+
+<textarea
+id="reviewText"
+rows="4"
+placeholder="Review লিখুন..."
+class="w-full border border-gray-300 rounded-2xl px-5 py-4"></textarea>
+
+<button
+onclick="submitReview()"
+class="w-full bg-pink-500 hover:bg-pink-600 text-white py-4 rounded-2xl text-xl font-bold">
+
+Submit Review
+
+</button>
+
+</div>
+
+<div id="reviewList"
+class="mt-10 space-y-5"></div>
+
+</div>
+
+</section>
+
+<!-- WISHLIST -->
+<div class="max-w-7xl mx-auto px-5 pb-16">
+
+<div class="bg-white rounded-3xl shadow-2xl p-8">
+
+<h2 class="text-3xl font-bold text-pink-600 mb-5">
+❤️ Wishlist
+</h2>
+
+<div id="wishlistItems">
+<p>Wishlist Empty</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="bg-pink-900 text-white py-10 text-center">
+
+<h3 class="text-3xl font-bold mb-3">
+Glow Nails Studio
+</h3>
+
+<p>
+Premium Press On Nails Store
+</p>
+
+<p class="mt-5 text-pink-200">
+© 2026 Glow Nails Studio
+<br>
+Designed & Managed by Tanmoy Dari
+</p>
+
+</footer>
+
+</div>
+
+<script>
+
+let cart = [];
+let wishlist = [];
+let total = 0;
+let totalPrice = 0;
+let discountApplied = false;
+
+/* LOADER */
+setTimeout(() => {
+document.getElementById("loader").style.display = "none";
+}, 2000);
+
+/* LOAD */
+window.onload = function () {
+
+let savedName = localStorage.getItem("userName");
+let savedPhone = localStorage.getItem("userPhone");
+
+if (savedName && savedPhone) {
+
+document.getElementById("loginPage").style.display = "none";
+
+document.getElementById("website").classList.remove("hidden");
+
+document.getElementById("welcomeText").innerHTML =
+`Welcome, ${savedName} 💖`;
+
+}
+
+loadReviews();
+
+};
+
+/* LOGIN */
+function loginUser() {
+
+let name =
+document.getElementById("loginName").value.trim();
+
+let phone =
+document.getElementById("loginPhone").value.trim();
+
+if (!name || !phone) {
+alert("সব তথ্য পূরণ করুন");
+return;
+}
+
+if (!/^[0-9]{10}$/.test(phone)) {
+alert("সঠিক 10 ডিজিট মোবাইল নাম্বার দিন");
+return;
+}
+
+localStorage.setItem("userName", name);
+localStorage.setItem("userPhone", phone);
+
+document.getElementById("loginPage").style.display = "none";
+
+document.getElementById("website").classList.remove("hidden");
+
+document.getElementById("welcomeText").innerHTML =
+`Welcome, ${name} 💖`;
+
+}
+
+/* LOGOUT */
+function logoutUser() {
+localStorage.clear();
+location.reload();
+}
+
+/* DARK */
+function toggleDarkMode() {
+
+document.getElementById("body").classList.toggle("bg-black");
+
+document.getElementById("body").classList.toggle("text-white");
+
+}
+
+/* SEARCH */
+function searchProducts() {
+
+let input =
+document.getElementById("searchInput").value.toLowerCase();
+
+let products =
+document.querySelectorAll(".product-card");
+
+products.forEach(p => {
+
+let text = p.innerText.toLowerCase();
+
+p.style.display =
+text.includes(input)
+? "block"
+: "none";
+
+});
+
+}
+
+/* CART */
+function addToCart(name, price) {
+
+cart.push({ name, price });
+
+total += price;
+
+updateCart();
+
+calculateTotal();
+
+}
+
+/* REMOVE */
+function removeFromCart(index) {
+
+total -= cart[index].price;
+
+cart.splice(index, 1);
+
+updateCart();
+
+calculateTotal();
+
+}
+
+/* UPDATE CART */
+function updateCart() {
+
+let box =
+document.getElementById("cartItems");
+
+box.innerHTML = "";
+
+if (cart.length === 0) {
+
+box.innerHTML = "<p>Cart Empty</p>";
+
+}
+
+cart.forEach((item, index) => {
+
+box.innerHTML += `
+<div class="bg-pink-50 p-4 rounded-2xl">
+
+${item.name} - ₹${item.price}
+
+<button
+onclick="removeFromCart(${index})"
+class="ml-3 bg-red-500 text-white px-2 py-1 rounded-xl">
+
+Remove
+
+</button>
+
+</div>
+`;
+
+});
+
+document.getElementById("cartTotal").innerHTML =
+`Total: ₹${total}`;
+
+}
+
+/* WISHLIST */
+function addWishlist(name) {
+
+if (!wishlist.includes(name)) {
+wishlist.push(name);
+}
+
+updateWishlist();
+
+}
+
+/* UPDATE WISHLIST */
+function updateWishlist() {
+
+let box =
+document.getElementById("wishlistItems");
+
+box.innerHTML = "";
+
+if (wishlist.length === 0) {
+
+box.innerHTML = "<p>Wishlist Empty</p>";
+
+return;
+
+}
+
+wishlist.forEach(item => {
+
+box.innerHTML += `
+<div
+onclick="highlightProduct('${item}')"
+class="bg-pink-50 p-3 rounded-2xl cursor-pointer hover:bg-pink-200 duration-300">
+
+❤️ ${item}
+
+</div>
+`;
+
+});
+
+}
+
+/* HIGHLIGHT PRODUCT */
+function highlightProduct(productName) {
+
+let product =
+document.getElementById(productName);
+
+if (!product) return;
+
+product.scrollIntoView({
+behavior: "smooth",
+block: "center"
+});
+
+product.classList.add("ring-4");
+product.classList.add("ring-pink-500");
+
+setTimeout(() => {
+
+product.classList.remove("ring-4");
+product.classList.remove("ring-pink-500");
+
+}, 2000);
+
+}
+
+/* TOTAL */
+function calculateTotal() {
+
+  let delivery =
+  Number(document.getElementById("deliveryType").value || 0);
+
+  let final = total + delivery;
+
+  /* DISCOUNT */
+  if (discountApplied) {
+
+    final = Math.round(final - (final * 0.20));
+
+  }
+
+  totalPrice = final;
+
+  document.getElementById("finalTotal").innerHTML =
+  `Final Total: ₹${final}`;
+
+}
+
+//* COUPON */
+function applyCoupon() {
+
+  let code =
+  document.getElementById("couponInput").value.trim().toUpperCase();
+
+  if (code === "GLOW20") {
+
+    discountApplied = true;
+
+    calculateTotal();
+
+    alert("20% Discount Applied 🎉");
+
+  } else {
+
+    discountApplied = false;
+
+    calculateTotal();
+
+    alert("Invalid Coupon");
+
+  }
+
+}
+
+/* ORDER */
+function submitOrder() {
+
+let name =
+document.getElementById("customerName").value.trim();
+
+let phone =
+document.getElementById("customerPhone").value.trim();
+
+let address =
+document.getElementById("customerAddress").value.trim();
+
+let pin =
+document.getElementById("customerPin").value.trim();
+
+let size =
+document.getElementById("nailSize").value;
+
+if (!name || !phone || !address || !pin || !size) {
+
+alert("সব তথ্য পূরণ করুন");
+
+return;
+
+}
+
+let cartText = "";
+
+cart.forEach(i => {
+
+cartText += `${i.name} - ₹${i.price}%0A`;
+
+});
+
+let message = `💅 New Order
+Name: ${name}
+Phone: ${phone}
+Address: ${address}
+PIN: ${pin}
+Size: ${size}
+Cart:
+${cartText}
+Total: ₹${totalPrice}`;
+
+window.open(
+`https://wa.me/9433523525?text=${encodeURIComponent(message)}`
+);
+
+}
+
+/* REVIEW */
+function submitReview() {
+
+let user =
+localStorage.getItem("userName");
+
+if (!user) {
+
+alert("Login না করলে review দেওয়া যাবে না");
+
+return;
+
+}
+
+let name =
+document.getElementById("reviewName").value.trim();
+
+let review =
+document.getElementById("reviewText").value.trim();
+
+if (!name || !review) {
+
+alert("সব তথ্য পূরণ করুন");
+
+return;
+
+}
+
+let reviews =
+JSON.parse(localStorage.getItem("reviews")) || [];
+
+reviews.push({
+name,
+review
+});
+
+localStorage.setItem(
+"reviews",
+JSON.stringify(reviews)
+);
+
+loadReviews();
+
+document.getElementById("reviewName").value = "";
+document.getElementById("reviewText").value = "";
+
+}
+
+/* LOAD REVIEWS */
+function loadReviews() {
+
+let reviews =
+JSON.parse(localStorage.getItem("reviews")) || [];
+
+let box =
+document.getElementById("reviewList");
+
+box.innerHTML = "";
+
+reviews.forEach(r => {
+
+box.innerHTML += `
+<div class="bg-pink-50 p-5 rounded-2xl shadow">
+
+<h3 class="font-bold text-xl mb-2">
+⭐ ${r.name}
+</h3>
+
+<p class="text-yellow-500 mb-2">
+⭐⭐⭐⭐⭐
+</p>
+
+<p>${r.review}</p>
+
+</div>
+`;
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
+
